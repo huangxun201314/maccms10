@@ -1,0 +1,30 @@
+<div class="popup popup-xl-vod none" >
+  <div class="popup-header">
+    <h3 class="popup-title">相关视频</h3>
+  </div>
+  <div class="popup-main">
+      {notempty name="obj[vod_rel_vod]"}
+   <p><strong>系列视频</strong><br>
+      {maccms:vod num="6" rel="'.$obj['vod_rel_vod'].'" order="desc" by="time"}
+      <a href="{if condition="$mxonest['mxcms']['s2']['tzzt'] eq 1"}{:mac_url_vod_play($vo)}{else}{:mac_url_vod_detail($vo)}{/if}" class="module-item-title" title="{$vo.vod_name}">{$vo.vod_name}</a>
+      {/maccms:vod}   
+   </p>
+   {/notempty}
+  查找：<strong>
+   {if condition="strlen($obj['vod_name']) gt 15"}
+   {$sou_name = substr($obj['vod_name'],0,12)}
+   {elseif condition="strlen($obj['vod_name']) elt 15"}
+   {$sou_name = substr($obj['vod_name'],0,6)}
+   {/if}   
+  </strong>　相关影片<br>
+
+ <p>
+
+        {maccms:vod num="6" name="'.$sou_name.'" order="desc" by="time"}
+      <a target="_blank" href="{if condition="$mxonest['mxcms']['s2']['tzzt'] eq 1"}{:mac_url_vod_play($vo)}{else}{:mac_url_vod_detail($vo)}{/if}" class="module-item-title" title="{$vo.vod_name}"> <em style="color: #e1e1e1;">[{$vo.type.type_name}]</em>{$vo.vod_name}</a>
+      {/maccms:vod}   
+   </p>
+  </div>
+  <div class="popup-footer"></div>
+  <div class="close-popup" id="close-popup"><i class="icon-close-o"></i></div>
+</div>

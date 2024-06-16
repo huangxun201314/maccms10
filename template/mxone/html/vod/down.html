@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="zh-cn">
+<head> 
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0">
+<title>下载《{$obj.vod_name}》详情介绍_{$obj.vod_name}{$obj.vod_remarks}在线观看_{$obj.vod_name}迅雷下载_{$obj.type.type_name}_{$maccms.site_name} - {$maccms.site_url}</title>
+<meta name="keywords" content="下载{$obj.vod_name}{$obj['vod_play_list'][$param['sid']]['urls'][$param['nid']]['name']}{$obj.type.type_name}高清免费在线观看,{$obj.vod_name}{$obj.vod_remarks}迅雷下载,,{$obj.vod_name}完整版在线下载,{$obj.vod_name}主演:{$obj.vod_actor}">
+<meta name="description" content="下载{$maccms.site_name}为您提供,热播{$obj.type.type_name},{$obj.vod_name}完整版免费免VIP无广告在线观看以及迅雷下载;{$obj.vod_name}剧情:{$obj.vod_blurb}">
+{include file="public/include"}
+</head>
+<body class="view page">
+    
+   {include file="public/head"}   <!-- 头部 -->
+   <main id="main" class="wrapper">
+   	<div class="content">   
+   	
+    {include file="vod/desc"}       <!-- 简介 -->
+    
+    {include file="vod/downlist"}   <!-- 下载列表 -->
+    
+    {include file="vod/serie"}   <!-- 系列影片 -->
+    
+    {include file="vod/like"}       <!-- 相关影片 -->
+    
+    {include file="vod/hot"}       <!-- 正在热播 -->
+   
+   	</div>
+   </main>
+   
+   {include file="public/foot"} <!-- 底部-->
+   
+   <div class="shortcuts-box"><div id="shortcuts-info"></div></div>
+   <span class="mac_hits hits none" data-mid="{$maccms.mid}" data-id="{$obj.vod_id}{$obj.art_id}{$obj.topic_id}" data-type="hits"></span>
+    <span class="mac_ulog_set none" data-type="5" data-mid="{$maccms.mid}" data-id="{$obj.vod_id}" data-sid="{$param.sid}" data-nid="{$param.nid}"></span>
+	<script type="text/javascript">
+		function thunderf(url,name) {
+	        thunderLink.newTask({
+	            downloadDir: '下载目录',
+	            tasks: [{
+	                name: name,
+	                url: url,
+	                size: 0
+	            }]
+	        });
+	    }
+		
+	</script>
+ </body>
+</html>
