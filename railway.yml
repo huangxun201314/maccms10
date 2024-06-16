@@ -1,0 +1,5 @@
+deployment:
+    - name: maccms10
+      type: docker
+      configVars:
+        - PORT: 80
