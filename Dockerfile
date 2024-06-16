@@ -26,8 +26,10 @@ RUN set -ex \
     && apt-get clean \
     && rm -rf /tmp/* /var/lib/apt/lists/*
 
-RUN a2enmod rewrite
-RUN echo "ServerName localhost" >> /etc/apache2/apache2.conf
+RUN set -ex \
+    && a2enmod remoteip \
+    && sed -i 's/%h/%a/g' /etc/apache2/apache2.conf \
+    && echo "ServerName localhost" >> /etc/apache2/apache2.conf
 
 COPY <<EOT /etc/apache2/mods-enabled/remoteip.conf
 RemoteIPHeader X-Forwarded-For
