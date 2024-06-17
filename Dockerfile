@@ -31,11 +31,7 @@ RUN set -ex \
     && sed -i 's/%h/%a/g' /etc/apache2/apache2.conf \
     && echo "ServerName localhost" >> /etc/apache2/apache2.conf
 
-COPY <<EOT /etc/apache2/mods-enabled/remoteip.conf
-RemoteIPHeader X-Forwarded-For
-RemoteIPTrustedProxy 127.0.0.0/8
-RemoteIPTrustedProxy ::1/128
-EOT
+COPY remoteip.conf /etc/apache2/mods-enabled/remoteip.conf
 
 COPY . /var/www/html
 
